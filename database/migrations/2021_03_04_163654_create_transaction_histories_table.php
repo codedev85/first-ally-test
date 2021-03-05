@@ -20,7 +20,7 @@ class CreateTransactionHistoriesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->enum('TYPE',['CREDIT','DEBIT']);
             $table->string('currency');
-            $table->unsignedBigInteger('credited_by')->nullable();
+            $table->string('credited_by')->nullable();
             $table->timestamps();
         });
     }

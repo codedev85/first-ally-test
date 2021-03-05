@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Make Payment')
+@section('title','Pay User')
 @section('content')
 
 
@@ -22,7 +22,7 @@
                                     Fx Exchange </h3>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{url('/home')}}"><i data-feather="home"></i></a></li>
-                                    <li class="breadcrumb-item">Make Payment</li>
+                                    <li class="breadcrumb-item">Pay User</li>
                                 </ol>
                             </div>
                             <div class="col-6">
@@ -71,37 +71,31 @@
                                         <div class="card-header card-no-border">
                                             <div class="media">
                                                 <div class="media-body">
-                                                    <h4 class="f-w-500 mb-0 f-26">Request For Exchange</h4>
+                                                    <h4 class="f-w-500 mb-0 f-26">Pay User</h4>
                                                     <br>
                                                 </div>
                                             </div>
-                                            <form action="{{url('currency/exchange')}}" method="POST">
+                                            <form action="{{url('pay/user/'.$payUser->id)}}" method="POST">
                                                 @csrf
                                                 <div class="form-group">
+                                                    <label>Currency</label>
+                                                    <input  type="text" class="form-control" name="currency" value="{{$payUser->currency_conversion}}" readonly/>
+                                                </div>
+                                                <div class="form-group">
                                                     <label>Amount</label>
-                                                    <input  type="number" step="0.01"  class="form-control" name="rate"/>
-                                                    <span class="text-danger">{{$errors->first('rate')}}</span>
+                                                    <input  type="number" step="0.01"  class="form-control" value="{{$payUser->currency_rate}}" name="amount" readonly/>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Cashback Account</label><br>
-                                                    <span class="text-danger">{{$errors->first('account')}}</span>
-                                                    <select class="form-control" name="account">
-                                                        <option value="">Select CashBack Account</option>
-                                                        <option value="Bank">Bank</option>
-                                                        <option value="Wallet">Wallet</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Currency</label><br>
-                                                    <span class="text-danger">{{$errors->first('currency')}}</span>
-                                                    <select class="form-control" name="currency">
-                                                        <option value="">Select Currency</option>
-                                                        @foreach($currencies as $currency)
-                                                            <option value="{{$currency->currency}}">{{$currency->currency}} - {{$currency->rate}}</option>
+                                                    <label>Select Users Bank</label><br>
+                                                    <span class="text-danger">{{$errors->first('bank')}}</span>
+                                                    <select class="form-control" name="bank">
+                                                        <option value="">Select Bank</option>
+                                                        @foreach($banks as $bank)
+                                                            <option value="{{$bank->account_number}}">{{$bank->bank_name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <button class="btn btn-success">Add Exchange Rate</button>
+                                                <button class="btn btn-success">Pay {{$payUser->user->name}}</button>
                                             </form>
                                         </div>
                                     </div>

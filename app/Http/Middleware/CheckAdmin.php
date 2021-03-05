@@ -18,7 +18,7 @@ class CheckAdmin
     {
         if(auth()->user()->role_id != 1){
 
-            toastr()->error('You dont have access to this resource');
+            toastr()->error('You dont have permission to view this resource');
             return back();
         }
         return $next($request);

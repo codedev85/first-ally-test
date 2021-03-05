@@ -12,6 +12,7 @@
                     <li class="back-btn"><a href="i{{url('/home')}}"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a>
                         <div class="mobile-back text-right"><span>Back</span><i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                     </li>
+                    @if(auth()->user()->role_id == 1)
                     <li class="sidebar-title">
                         <div>
                             <h6>Administrator</h6>
@@ -29,10 +30,17 @@
                     </li>
                     <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="layout"></i><span >Payout Request</span></a>
                         <ul class="nav-submenu menu-content">
-                            <li><a href="{{url('payout/request')}}">Payout Request</a></li>
-                            <li><a href="{{url('/list/all-request')}}">All Request</a></li>
+                            <li><a href="{{url('all/payout/request')}}">Payout Request (UNPAID)</a></li>
+                            <li><a href="{{url('all/payout/list')}}">All Request</a></li>
                         </ul>
                     </li>
+                        <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="shopping-bag"></i><span>Transactions</span></a>
+                            <ul class="nav-submenu menu-content">
+                                <li><a href="{{url('/transaction/history')}}">Transaction History</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                    @if(auth()->user()->role_id == 2)
                     <li class="sidebar-title">
                         <div>
                             <h6 >User</h6>
@@ -50,6 +58,7 @@
                     <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="box"></i><span>Exchange Currency</span></a>
                         <ul class="nav-submenu menu-content">
                             <li><a href="{{url('/currency/exchange')}}">Currency Exchange</a></li>
+                            <li><a href="{{url('/currency/exchange/history')}}">Currency Exchange History</a></li>
                         </ul>
                     </li>
 
@@ -58,7 +67,7 @@
                             <li><a href="{{url('/transaction/history')}}">Transaction History</a></li>
                         </ul>
                     </li>
-
+                    @endif
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

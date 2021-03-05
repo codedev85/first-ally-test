@@ -84,6 +84,11 @@
                                                     <th scope="col">Type</th>
                                                     <th scope="col">Currency</th>
                                                     <th scope="col">Credited By</th>
+                                                    @if(auth()->user()->role_id == 1)
+                                                    <th scope="col">Bearer</th>
+                                                    <th scope="col">Bearer's Email</th>
+                                                    @endif
+                                                    <th scope="col">Created Date</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -95,6 +100,11 @@
                                                     <td>{{$history->TYPE}}</td>
                                                     <td>{{$history->currency}}</td>
                                                     <td>{{$history->credited_by}}</td>
+                                                    @if(auth()->user()->role_id ==1)
+                                                    <td>{{$history->user['name']}}</td>
+                                                    <td>{{$history->user['email']}}</td>
+                                                    @endif
+                                                    <td>{{$history->created_at->diffforhumans()}}</td>
                                                 </tr>
                                                 @endforeach
                                                 </tbody>

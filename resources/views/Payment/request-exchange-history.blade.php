@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Make Payment')
+@section('title','Create Rate')
 @section('content')
 
 
@@ -22,7 +22,7 @@
                                     Fx Exchange </h3>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{url('/home')}}"><i data-feather="home"></i></a></li>
-                                    <li class="breadcrumb-item">Make Payment</li>
+                                    <li class="breadcrumb-item">Transaction History</li>
                                 </ol>
                             </div>
                             <div class="col-6">
@@ -64,49 +64,53 @@
                 <!-- Container-fluid starts-->
                 <div class="container-fluid">
                     <div class="row size-column">
-                        <div class="col-xl-7 box-col-12 xl-100">
+                        <div class="col-xl-12 box-col-12 xl-100">
                             <div class="row dash-chart">
-                                <div class="col-xl-12 box-col-6 col-md-12">
+                                <div class="col-xl-12  col-md-12">
                                     <div class="card o-hidden">
                                         <div class="card-header card-no-border">
                                             <div class="media">
                                                 <div class="media-body">
-                                                    <h4 class="f-w-500 mb-0 f-26">Request For Exchange</h4>
+                                                    <h4 class="f-w-500 mb-0 f-26">Transaction History</h4>
                                                     <br>
                                                 </div>
                                             </div>
-                                            <form action="{{url('currency/exchange')}}" method="POST">
-                                                @csrf
-                                                <div class="form-group">
-                                                    <label>Amount</label>
-                                                    <input  type="number" step="0.01"  class="form-control" name="rate"/>
-                                                    <span class="text-danger">{{$errors->first('rate')}}</span>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Cashback Account</label><br>
-                                                    <span class="text-danger">{{$errors->first('account')}}</span>
-                                                    <select class="form-control" name="account">
-                                                        <option value="">Select CashBack Account</option>
-                                                        <option value="Bank">Bank</option>
-                                                        <option value="Wallet">Wallet</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Currency</label><br>
-                                                    <span class="text-danger">{{$errors->first('currency')}}</span>
-                                                    <select class="form-control" name="currency">
-                                                        <option value="">Select Currency</option>
-                                                        @foreach($currencies as $currency)
-                                                            <option value="{{$currency->currency}}">{{$currency->currency}} - {{$currency->rate}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <button class="btn btn-success">Add Exchange Rate</button>
-                                            </form>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Reference</th>
+                                                    <th scope="col">Amount Paid</th>
+                                                    <th scope="col">Channel</th>
+                                                    <th scope="col">Cashback Status</th>
+                                                    <th scope="col">Cashback Value</th>
+                                                    <th scope="col">Exchange Currency</th>
+                                                    <th scope="col">Transfer Options</th>
+                                                    <th scope="col">Creation Date</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($ExRequests as $key =>  $history)
+                                                    <tr>
+                                                        <th scope="row">{{$key + 1}}</th>
+                                                        <td>{{$history->status}}</td>
+                                                        <td>{{$history->refs}}</td>
+                                                        <td>{{$history->amount_paid}}</td>
+                                                        <td>{{$history->channel}}</td>
+                                                        <td>{{$history->payment_status}}</td>
+                                                        <td>{{number_format($history->currency_rate)}}</td>
+                                                        <td>{{$history->currency_conversion}}</td>
+                                                        <td>{{$history->account_options}}</td>
+                                                        <td>{{$history->created_at->diffforhumans()}}</td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
-
+{{$ExRequests->render()}}
                             </div>
                         </div>
 

@@ -152,18 +152,20 @@
                                             <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
+                                                <th scope="col">Currency</th>
+                                                <th scope="col">Rate</th>
+                                                <th scope="col">Naira Value</th>
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            @foreach($currencies as $key => $currency)
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
+                                                <th scope="row">{{$key + 1}}</th>
+                                                <td>{{$currency->currency}}</td>
+                                                <td>{{$currency->rate}}</td>
+                                                <td>{{$currency->naira}}</td>
                                             </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -182,34 +184,44 @@
                                 <h5>Cashback Transaction </h5>
 
                             </div>
-                            <table class="table table-striped">
+                            <table class="table table-striped" >
                                 <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">Bearer</th>
+                                    <th scope="col">Reference</th>
+                                    <th scope="col">Amount Paid</th>
+                                    <th scope="col">Channel</th>
+                                    <th scope="col">Cashback Status</th>
+                                    <th scope="col">Cashback Value</th>
+                                    <th scope="col">Exchange Currency</th>
+                                    <th scope="col">Transfer Options</th>
+                                    <th scope="col">Creation Date</th>
+                                    @if(auth()->user()->role_id ==1 )
+                                    <th scope="col">Make Payment</th>
+                                    @endif
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
+                                @foreach($ExRequests as $key =>  $history)
+                                    <tr>
+                                        <td>{{$history->user['email']}}</td>
+                                        <td>{{$history->refs}}</td>
+                                        <td>{{$history->amount_paid}}</td>
+                                        <td>{{$history->channel}}</td>
+                                        <td>{{$history->payment_status}}</td>
+                                        <td>{{number_format($history->currency_rate)}}</td>
+                                        <td>{{$history->currency_conversion}}</td>
+                                        <td>{{$history->account_options}}</td>
+                                        <td>{{$history->created_at->diffforhumans()}}</td>
+                                        @if(auth()->user()->role_id ==1 )
+                                        <td>
+                                            <a href="{{url('/make/payment/'.$history->id)}}">
+                                                <button class="btn btn-success">Make Payment</button>
+                                            </a>
+                                        </td>
+                                        @endif
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

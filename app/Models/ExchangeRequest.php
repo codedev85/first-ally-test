@@ -10,4 +10,8 @@ class ExchangeRequest extends Model
     use HasFactory;
     protected $table = 'exchange_requests';
     protected $guarded = ['id'];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

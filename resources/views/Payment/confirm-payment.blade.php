@@ -22,7 +22,7 @@
                                     Fx Exchange </h3>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{url('/home')}}"><i data-feather="home"></i></a></li>
-                                    <li class="breadcrumb-item">Rate Create</li>
+                                    <li class="breadcrumb-item">Confirm Payment</li>
                                 </ol>
                             </div>
                             <div class="col-6">

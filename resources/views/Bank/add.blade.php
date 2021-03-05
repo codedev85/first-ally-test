@@ -80,16 +80,19 @@
                                                 <div class="form-group">
                                                     <label>Bank Name</label>
                                                     <input  type="text" class="form-control" name="bank_name"/>
+                                                    <span class="text-danger">{{$errors->first('bank_name')}}</span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Bank Account</label>
                                                     <input  type="text" class="form-control" name="account_number"/>
+                                                    <span class="text-danger">{{$errors->first('account_number')}}</span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Account Holder Name</label>
                                                     <input  type="text" class="form-control" name="account_name"/>
+                                                    <span class="text-danger">{{$errors->first('account_name')}}</span>
                                                 </div>
-                                                <button class="btn btn-success">Add Exchange Rate</button>
+                                                <button class="btn btn-success">Add Bank Details</button>
                                             </form>
                                         </div>
                                     </div>

@@ -39,6 +39,13 @@
     <script src="jquery.min.js"></script>
     <link href="toastr.css" rel="stylesheet"/>
     <script src="toastr.js"></script>
+    <style>
+        table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+    </style>
     @toastr_css
 </head>
 <body>

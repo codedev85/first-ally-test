@@ -80,9 +80,11 @@
                                                 <div class="form-group">
                                                     <label>Amount</label>
                                                     <input  ttype="number" step="0.01"  class="form-control" name="rate"/>
+                                                    <span class="text-danger">{{$errors->first('rate')}}</span>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Cashback Account</label>
+                                                    <label>Cashback Account</label><br>
+                                                    <span class="text-danger">{{$errors->first('account')}}</span>
                                                    <select class="form-control" name="account">
                                                        <option value="">Select CashBack Account</option>
                                                        <option value="Bank">Bank</option>
@@ -90,7 +92,8 @@
                                                    </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Currency</label>
+                                                    <label>Currency</label><br>
+                                                    <span class="text-danger">{{$errors->first('currency')}}</span>
                                                     <select class="form-control" name="currency">
                                                         <option value="">Select Currency</option>
                                                         @foreach($currencies as $currency)

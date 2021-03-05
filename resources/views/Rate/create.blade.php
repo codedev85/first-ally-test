@@ -80,10 +80,12 @@
                                                 <div class="form-group">
                                                     <label>Currency</label>
                                                     <input  type="text" class="form-control" name="currency"/>
+                                                    <span class="text-danger">{{$errors->first('currency')}}</span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Amount</label>
                                                     <input  type="number" step="0.01"  class="form-control" name="rate"/>
+                                                    <span class="text-danger">{{$errors->first('rate')}}</span>
                                                 </div>
                                                 <button class="btn btn-success">Add Exchange Rate</button>
                                             </form>
