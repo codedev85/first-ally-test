@@ -17,12 +17,13 @@ class CreateExchangeRequestsTable extends Migration
             $table->id();
             $table->string('status');
             $table->string('refs');
-            $table->string('payday');
+            $table->string('amount_paid');
             $table->string('channel');
             $table->unsignedBigInteger('user_id');
             $table->enum('payment_status',['PENDING PAYMENT','PAID'])->default('PENDING PAYMENT');
             $table->string('currency_conversion');
             $table->double('currency_rate');
+            $table->string('account_options');
             $table->timestamps();
         });
     }

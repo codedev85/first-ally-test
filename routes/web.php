@@ -28,3 +28,9 @@ Route::post('/store/rate',[App\Http\Controllers\Currency::class,'store'])->name(
 
 Route::get('currency/exchange',[App\Http\Controllers\Exchange::class,'exchange'])->name('exchange');
 Route::post('currency/exchange',[App\Http\Controllers\Exchange::class,'request'])->name('exchange.request');
+
+Route::get('/transaction/history',[App\Http\Controllers\Transaction::class ,'history'])->name('transaction.history');
+
+Route::get('/add/bank',[App\Http\Controllers\Bank::class ,'add'])->name('add.bank');
+Route::post('/store/bank',[App\Http\Controllers\Bank::class ,'store'])->name('store.bank');
+Route::get('/my-bank',[App\Http\Controllers\Bank::class ,'myBank'])->name('my.bank');

@@ -40,6 +40,12 @@
                         </div>
                     </li>
                     <li ><a class="nav-link menu-title" href="{{url('/home')}}"><i data-feather="home"></i><span >Dashboard</span></a>
+                    <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="box"></i><span>Add Bank</span></a>
+                        <ul class="nav-submenu menu-content">
+                            <li><a href="{{url('/add/bank')}}">Add Bank</a></li>
+                            <li><a href="{{url('/my-bank')}}">My Bank</a></li>
+                        </ul>
+                    </li>
 
                     <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="box"></i><span>Exchange Currency</span></a>
                         <ul class="nav-submenu menu-content">

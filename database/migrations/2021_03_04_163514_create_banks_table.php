@@ -18,6 +18,7 @@ class CreateBanksTable extends Migration
             $table->string('account_number');
             $table->string('account_name');
             $table->string('bank_name');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

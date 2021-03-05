@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7215f41-9fd9-4480-985d-4c0283df41c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/first-ally-redo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/first-ally-redo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Rate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Rate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_04_163514_create_banks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_04_163514_create_banks_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_04_163543_create_currencies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_04_163543_create_currencies_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_04_163609_create_exchange_requests_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_04_163609_create_exchange_requests_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/head-config.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/head-config.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/nav-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/nav-bar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_04_163654_create_transaction_histories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_04_163654_create_transaction_histories_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -182,7 +172,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614875590549</updated>
-      <workItem from="1614875593433" duration="18687000" />
+      <workItem from="1614875593433" duration="27127000" />
     </task>
     <servers />
   </component>

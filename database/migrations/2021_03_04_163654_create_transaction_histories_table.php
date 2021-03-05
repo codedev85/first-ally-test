@@ -15,11 +15,12 @@ class CreateTransactionHistoriesTable extends Migration
     {
         Schema::create('transaction_histories', function (Blueprint $table) {
             $table->id();
-            $table->double('credit_amount');
-            $table->double('debit_amount');
+            $table->double('credit_amount')->default(0);
+            $table->double('debit_amount')->default(0);
+            $table->unsignedBigInteger('user_id');
             $table->enum('TYPE',['CREDIT','DEBIT']);
             $table->string('currency');
-            $table->unsignedBigInteger('credited_by');
+            $table->unsignedBigInteger('credited_by')->nullable();
             $table->timestamps();
         });
     }
