@@ -21,6 +21,7 @@ class CheckAdmin
             toastr()->error('You dont have permission to view this resource');
             return back();
         }
+
         return $next($request);
     }
 }
