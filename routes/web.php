@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth'] ], function() {
     Route::get('/add/bank', [App\Http\Controllers\Bank::class, 'add'])->name('add.bank');
     Route::post('/store/bank', [App\Http\Controllers\Bank::class, 'store'])->name('store.bank');
     Route::get('/my-bank', [App\Http\Controllers\Bank::class, 'myBank'])->name('my.bank');
+
     Route::group(['middleware' => ['admin'] ], function() {
         Route::get('/add/rate', [App\Http\Controllers\Currency::class, 'create'])->name('rate.create');
         Route::post('/store/rate', [App\Http\Controllers\Currency::class, 'store'])->name('rate.store');

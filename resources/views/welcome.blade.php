@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
+                    <input class="input100" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="password" placeholder="Password">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -87,7 +87,6 @@
 
                 <div class="text-center p-t-136">
                     <a class="txt2" href="#">
-{{--                        <img class="img-fluid" src="{{asset('/assets/images/logo/capitalsage.jpeg')}}" alt="" width="60" height="60">  --}}
                         FXExchange Manager
                         <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                     </a>
