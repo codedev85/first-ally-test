@@ -22,9 +22,9 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth'] ], function() {
 
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');
     Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback']);
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('currency/exchange', [App\Http\Controllers\Exchange::class, 'exchange'])->name('exchange');
     Route::get('currency/exchange/history', [App\Http\Controllers\Exchange::class, 'exchangeHistory'])->name('exchange.history');
     Route::post('currency/exchange', [App\Http\Controllers\Exchange::class, 'request'])->name('exchange.request');
