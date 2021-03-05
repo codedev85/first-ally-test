@@ -15,6 +15,9 @@ class CreateCurrenciesTable extends Migration
     {
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
+            $table->string('currency');
+            $table->double('rate');
+            $table->double('naira')->default(1);
             $table->timestamps();
         });
     }

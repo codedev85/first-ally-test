@@ -52,7 +52,7 @@
                             <li><a href="{{url('/transaction/history')}}">Transaction History</a></li>
                         </ul>
                     </li>
-                    
+
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

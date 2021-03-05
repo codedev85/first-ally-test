@@ -15,9 +15,9 @@ class CreateBanksTable extends Migration
     {
         Schema::create('banks', function (Blueprint $table) {
             $table->id();
-            $table->string('currency');
-            $table->double('rate');
-            $table->double('naira')->default(1);
+            $table->string('account_number');
+            $table->string('account_name');
+            $table->string('bank_name');
             $table->timestamps();
         });
     }

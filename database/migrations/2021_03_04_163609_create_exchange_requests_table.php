@@ -20,7 +20,7 @@ class CreateExchangeRequestsTable extends Migration
             $table->string('payday');
             $table->string('channel');
             $table->unsignedBigInteger('user_id');
-            $table->string('payment_status');
+            $table->enum('payment_status',['PENDING PAYMENT','PAID'])->default('PENDING PAYMENT');
             $table->string('currency_conversion');
             $table->double('currency_rate');
             $table->timestamps();
