@@ -12,7 +12,8 @@
             </div>
         </form>
         <div class="main-header-left">
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
+            <div class="logo-wrapper"><a href="{{url('/home')}}">
+                </a></div>
             <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="grid" id="sidebar-toggle"> </i></div>
         </div>
         <div class="left-menu-header col horizontal-wrapper pl-0">
@@ -53,9 +54,10 @@
 
                 <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
                 <li class="profile-nav onhover-dropdown p-0">
-                    <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/profile.jpg" alt="">
-                        <div class="media-body"><span>Emay Walter</span>
-                            <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
+                    <div class="media profile-media">
+{{--                        <img class="b-r-10" src="../assets/images/dashboard/profile.jpg" alt="">--}}
+                        <div class="media-body"><span>{{auth()->user()->name}}</span>
+                            <p class="mb-0 font-roboto">{{auth()->user()->role['roles']}}<i class="middle fa fa-angle-down"></i></p>
                         </div>
                     </div>
                     <ul class="profile-dropdown onhover-show-div">

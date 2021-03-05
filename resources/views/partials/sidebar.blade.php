@@ -1,9 +1,14 @@
 <header class="main-nav">
-    <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt=""><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt=""></a>
+    <div class="logo-wrapper"><a href="{{url('/')}}">
+          <h4>
+              FX Exchange
+          </h4>
+        </a>
         <div class="back-btn"><i class="fa fa-angle-left"></i></div>
         <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="grid" id="sidebar-toggle"> </i></div>
     </div>
-    <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a></div>
+    <div class="logo-icon-wrapper"><a href="{{url('/')}}">
+            <h4>Fx Exchange</h4></a></div>
     <nav>
         <div class="main-navbar">
             <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
@@ -25,7 +30,6 @@
                     <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="airplay"></i><span >Add Rates</span></a>
                         <ul class="nav-submenu menu-content">
                             <li><a href="{{url('add/rate')}}">Add Rate</a></li>
-                            <li><a href="{{url('/list/rate')}}">List Rate</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="layout"></i><span >Payout Request</span></a>
