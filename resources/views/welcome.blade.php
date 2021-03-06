@@ -80,8 +80,8 @@
 						<span class="txt1">
 							Forgot
 						</span>
-                    <a class="txt2" href="{{ route('password.request') }}">
-                        Password?
+                    <a class="txt2" href="{{ route('login') }}">
+                        Login
                     </a>
                 </div>
 
