@@ -24,7 +24,8 @@ class CustomLoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home');
+
+            return redirect()->intended('/home');
         }
 
         return redirect('/')->with('error', 'Oppes! You have entered invalid credentials');
@@ -36,9 +37,5 @@ class CustomLoginController extends Controller
         return redirect('login');
     }
 
-    public function home()
-    {
 
-        return view('home');
-    }
 }

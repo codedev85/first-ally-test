@@ -32,13 +32,13 @@
                 <img src="login/images/img-01.png" alt="IMG">
             </div>
 
-            <form method="POST" action="{{ url('/auth-login') }}" class="login100-form validate-form">
-					<span class="login100-form-title">
-						Login Page
-					</span>
+            <form method="POST" action="{{ route('auth-login') }}" class="login100-form validate-form">
                 @csrf
+                     <span class="login100-form-title">
+                       Login Page
+					</span>
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input class="input100"  placeholder="Email"  id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
+                    <input class="input100"  placeholder="Email"  id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required  autofocus />
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <input class="input100" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="password" placeholder="Password">
+                    <input class="input100" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Password">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
