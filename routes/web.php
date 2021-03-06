@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+
 
 Route::get('/',[App\Http\Controllers\Auth\CustomLoginController::class, 'loginPage'])->name('welcome');
 
 Route::post('/auth-login', [App\Http\Controllers\Auth\CustomLoginController::class, 'authenticate'])->name('auth-login');
 
+
+Auth::routes();
 Route::group(['middleware' => ['auth'] ], function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback']);
