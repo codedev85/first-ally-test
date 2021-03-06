@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/auth-login', [App\Http\Controllers\Auth\CustomLoginController::class, 'authenticate'])->name('auth-login');
 
 Route::group(['middleware' => ['auth'] ], function() {
 
