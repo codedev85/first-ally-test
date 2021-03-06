@@ -100,7 +100,7 @@
                                                     <div >
                                                     @if($account == 'Bank')
                                                     <div>
-                                                        <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal" role="form">
+                                                        <form method="POST" action="{{route('pay'}}" accept-charset="UTF-8" class="form-horizontal" role="form">
                                                             <div class="row">
                                                                 <div class="col-md-8 col-md-offset-2">
                                                                     <input type="hidden" name="email" value="otemuyiwa@gmail.com"> {{-- required --}}
@@ -113,12 +113,9 @@
                                                                     {{ csrf_field() }} {{-- works only when using laravel 5.1, 5.2 --}}
 
                                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}"> {{-- employ this in place of csrf_field only in laravel 5.0 --}}
-
-
                                                                         <button class="btn btn-success btn-block btn-lg" type="submit" value="Pay Now!">
                                                                             <i class="fa fa-plus-circle fa-lg"></i> Pay Now!
                                                                         </button>
-
                                                                 </div>
                                                             </div>
                                                         </form>
