@@ -8,7 +8,7 @@ use Auth;
 
 class CustomLoginController extends Controller
 {
-    public function login()
+    public function loginPage()
     {
 
         return view('welcome');
