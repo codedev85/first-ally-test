@@ -100,30 +100,30 @@
                                                     <div >
                                                     @if($account == 'Bank')
                                                     <div>
-{{--                                                        <form method="POST" action="{{route('pay')}}" accept-charset="UTF-8" class="form-horizontal" role="form">--}}
-{{--                                                            <div class="row">--}}
-{{--                                                                <div class="col-md-8 col-md-offset-2">--}}
-{{--                                                                    <input type="hidden" name="email" value="otemuyiwa@gmail.com"> --}}{{-- required --}}
-{{--                                                                    <input type="hidden" name="orderID" value="nbb">--}}
-{{--                                                                    <input type="hidden" name="amount" value="{{$rate*100}}"> --}}{{-- required in kobo --}}
-{{--                                                                    <input type="hidden" name="quantity" value="1">--}}
-{{--                                                                    <input type="hidden" name="currency" value="NGN">--}}
-{{--                                                                    <input type="hidden" name="metadata" value="{{ json_encode($array = ['user_id' => auth()->user()->id,'currency' => $currency , 'acountOptions' => $account , 'convertedRate' =>  $rate/$Currencyrate->rate]) }}" > --}}{{-- For other necessary things you want to add to your payload. it is optional though --}}
-{{--                                                                    <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> --}}{{-- required --}}
-{{--                                                                    {{ csrf_field() }} --}}{{-- works only when using laravel 5.1, 5.2 --}}
+                                                        <form method="POST" action="{{route('pay')}}" accept-charset="UTF-8" class="form-horizontal" role="form">
+                                                            <div class="row">
+                                                                <div class="col-md-8 col-md-offset-2">
+                                                                    <input type="hidden" name="email" value="otemuyiwa@gmail.com">  required
+                                                                    <input type="hidden" name="orderID" value="nbb">
+                                                                    <input type="hidden" name="amount" value="{{$rate*100}}">  required in kobo
+                                                                    <input type="hidden" name="quantity" value="1">
+                                                                    <input type="hidden" name="currency" value="NGN">
+                                                                    <input type="hidden" name="metadata" value="{{ json_encode($array = ['user_id' => auth()->user()->id,'currency' => $currency , 'acountOptions' => $account , 'convertedRate' =>  $rate/$Currencyrate->rate]) }}" >  For other necessary things you want to add to your payload. it is optional though
+                                                                    <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">  required
+                                                                    {{ csrf_field() }}  works only when using laravel 5.1, 5.2
 
-{{--                                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}{{-- employ this in place of csrf_field only in laravel 5.0 --}}
-{{--                                                                        <button class="btn btn-success btn-block btn-lg" type="submit" value="Pay Now!">--}}
-{{--                                                                            <i class="fa fa-plus-circle fa-lg"></i> Pay Now!--}}
-{{--                                                                        </button>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                        </form>--}}
-                                                        <form>
-                                                            <script src="https://js.paystack.co/v1/inline.js"></script>
-                                                            <input type="hidden" value="{{$rate}}" id="rate"/>
-                                                            <button class="btn btn-success" type="button" onclick="payWithPaystack()"> Pay </button>
+                                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">  employ this in place of csrf_field only in laravel 5.0
+                                                                        <button class="btn btn-success btn-block btn-lg" type="submit" value="Pay Now!">
+                                                                            <i class="fa fa-plus-circle fa-lg"></i> Pay Now!
+                                                                        </button>
+                                                                </div>
+                                                            </div>
                                                         </form>
+{{--                                                        <form>--}}
+{{--                                                            <script src="https://js.paystack.co/v1/inline.js"></script>--}}
+{{--                                                            <input type="hidden" value="{{$rate}}" id="rate"/>--}}
+{{--                                                            <button class="btn btn-success" type="button" onclick="payWithPaystack()"> Pay </button>--}}
+{{--                                                        </form>--}}
                                                     </div>
                                                         @endif
                                                     <div>
@@ -183,54 +183,54 @@
     <script src="{{asset('assets/js/script.js')}}"></script>
     <script src="{{asset('assets/js/theme-customizer/customizer.js')}}"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-        function payWithPaystack(){
+{{--    <script>--}}
+{{--        function payWithPaystack(){--}}
 
-           var rate = document.getElementById("rate").value
+{{--           var rate = document.getElementById("rate").value--}}
 
-           console.log(rate)
-            var handler = PaystackPop.setup({
-                key: 'pk_test_20e05ff9b5eb9c701b14a644ba525e104e59021e',
-                email: 'customer@email.com',
-                amount: 10000,
-                ref: ''+Math.floor((Math.random() * 1000000000) + 1),
+{{--           console.log(rate)--}}
+{{--            var handler = PaystackPop.setup({--}}
+{{--                key: 'pk_test_20e05ff9b5eb9c701b14a644ba525e104e59021e',--}}
+{{--                email: 'customer@email.com',--}}
+{{--                amount: 10000,--}}
+{{--                ref: ''+Math.floor((Math.random() * 1000000000) + 1),--}}
 
-                // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-                metadata: {
-                    custom_fields: [
-                        {
-                            display_name: "Mobile Number",
-                            variable_name: "mobile_number",
-                            value: "+2348012345678"
-                        }
-                    ]
-                },
-                callback: function(response){
-                    // alert('success. transaction ref is ' + response.reference);
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                    $.ajax({
-                        type: "POST",
-                        url: "/pay",
-                        data: { },
-                        success: function(response) {
-                            window.location.href = "/paymentsuccess";
-                        },
-                        error: function(response) {
-                            location.reload();
-                        }
-                    });
-                },
-                onClose: function(){
-                    alert('window closed');
-                }
-            });
-            handler.openIframe();
-        }
-    </script>
+{{--                // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you--}}
+{{--                metadata: {--}}
+{{--                    custom_fields: [--}}
+{{--                        {--}}
+{{--                            display_name: "Mobile Number",--}}
+{{--                            variable_name: "mobile_number",--}}
+{{--                            value: "+2348012345678"--}}
+{{--                        }--}}
+{{--                    ]--}}
+{{--                },--}}
+{{--                callback: function(response){--}}
+{{--                    // alert('success. transaction ref is ' + response.reference);--}}
+{{--                    $.ajaxSetup({--}}
+{{--                        headers: {--}}
+{{--                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+{{--                        }--}}
+{{--                    });--}}
+{{--                    $.ajax({--}}
+{{--                        type: "POST",--}}
+{{--                        url: "/pay",--}}
+{{--                        data: { },--}}
+{{--                        success: function(response) {--}}
+{{--                            window.location.href = "/paymentsuccess";--}}
+{{--                        },--}}
+{{--                        error: function(response) {--}}
+{{--                            location.reload();--}}
+{{--                        }--}}
+{{--                    });--}}
+{{--                },--}}
+{{--                onClose: function(){--}}
+{{--                    alert('window closed');--}}
+{{--                }--}}
+{{--            });--}}
+{{--            handler.openIframe();--}}
+{{--        }--}}
+{{--    </script>--}}
 
     </body>
     </html>
