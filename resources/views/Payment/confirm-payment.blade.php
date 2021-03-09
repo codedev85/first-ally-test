@@ -103,16 +103,16 @@
                                                         <form method="POST" action="{{route('pay')}}" accept-charset="UTF-8" class="form-horizontal" role="form">
                                                             <div class="row">
                                                                 <div class="col-md-8 col-md-offset-2">
-                                                                    <input type="hidden" name="email" value="otemuyiwa@gmail.com">  required
+                                                                    <input type="hidden" name="email" value="olawuyia@gmail.com">
                                                                     <input type="hidden" name="orderID" value="nbb">
-                                                                    <input type="hidden" name="amount" value="{{$rate*100}}">  required in kobo
+                                                                    <input type="hidden" name="amount" value="{{$rate*100}}">
                                                                     <input type="hidden" name="quantity" value="1">
                                                                     <input type="hidden" name="currency" value="NGN">
-                                                                    <input type="hidden" name="metadata" value="{{ json_encode($array = ['user_id' => auth()->user()->id,'currency' => $currency , 'acountOptions' => $account , 'convertedRate' =>  $rate/$Currencyrate->rate]) }}" >  For other necessary things you want to add to your payload. it is optional though
-                                                                    <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">  required
-                                                                    {{ csrf_field() }}  works only when using laravel 5.1, 5.2
+                                                                    <input type="hidden" name="metadata" value="{{ json_encode($array = ['user_id' => auth()->user()->id,'currency' => $currency , 'acountOptions' => $account , 'convertedRate' =>  $rate/$Currencyrate->rate]) }}" >
+                                                                    <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">
+                                                                    {{ csrf_field() }}  
 
-                                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">  employ this in place of csrf_field only in laravel 5.0
+                                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                                         <button class="btn btn-success btn-block btn-lg" type="submit" value="Pay Now!">
                                                                             <i class="fa fa-plus-circle fa-lg"></i> Pay Now!
                                                                         </button>
