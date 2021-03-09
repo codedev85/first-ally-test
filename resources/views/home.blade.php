@@ -64,6 +64,7 @@
             <!-- Container-fluid starts-->
             <div class="container-fluid">
                 <div class="row size-column">
+                    @if(auth()->user()->role_id == 1)
                     <div class="col-xl-7 box-col-12 xl-100">
                         <div class="row dash-chart">
                             <div class="col-xl-6 box-col-6 col-md-6">
@@ -72,8 +73,8 @@
 
                                         <div class="media">
                                             <div class="media-body">
-                                                <p><span class="f-w-500 font-roboto">Today Total sale</span></p>
-                                                <h4 class="f-w-500 mb-0 f-26">$<span class="counter">3000.56</span></h4>
+                                                <p><span class="f-w-500 font-roboto">Clients</span></p>
+                                                <h4 class="f-w-500 mb-0 f-26"><span class="counter">{{$clientCount}}</span></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -92,8 +93,8 @@
 
                                         <div class="media">
                                             <div class="media-body">
-                                                <p><span class="f-w-500 font-roboto">Today Total visits</span></p>
-                                                <h4 class="f-w-500 mb-0 f-26 counter">9,050</h4>
+                                                <p><span class="f-w-500 font-roboto">Total credit in Naira</span></p>
+                                                <h4 class="f-w-500 mb-0 f-26"> &#8358; <span class="counter"> {{$totalExRequest}} </span></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -104,8 +105,8 @@
                                     <div class="card-body">
                                         <div class="ecommerce-widgets media">
                                             <div class="media-body">
-                                                <p class="f-w-500 font-roboto">Our Sale Value</p>
-                                                <h4 class="f-w-500 mb-0 f-26">$<span class="counter">7454.25</span></h4>
+                                                <p class="f-w-500 font-roboto">Total Payouts in (Pounds)</p>
+                                                <h4 class="f-w-500 mb-0 f-26">&#163;<span class="counter">{{$payoutInpounds }}</span></h4>
                                             </div>
 
                                         </div>
@@ -117,8 +118,8 @@
                                     <div class="card-body">
                                         <div class="media">
                                             <div class="media-body">
-                                                <p class="f-w-500 font-roboto">Today Stock value</p>
-                                                <h4 class="f-w-500 mb-0 f-26">$<span class="counter">3000.56</span></h4>
+                                                <p class="f-w-500 font-roboto">Total Payout in (Dollars)</p>
+                                                <h4 class="f-w-500 mb-0 f-26">$<span class="counter">{{ $payoutInDollars }}</span></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -132,14 +133,15 @@
 
                                 <div class="media">
                                     <div class="media-body">
-                                        <p><span class="f-w-500 font-roboto">Total Profit</span><span class="font-primary f-w-700 ml-2">99.00%</span></p>
-                                        <h4 class="f-w-500 mb-0 f-26">$<span class="counter">3000.56</span></h4>
+                                        <p><span class="f-w-500 font-roboto">Total Payouts in (Euros)</span></p>
+                                        <h4 class="f-w-500 mb-0 f-26">	&#x20AC;<span class="counter">{{$payoutInEuros}}</span></h4>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
+                    @endif
                     <div class="col-xl-4 xl-50 box-col-12">
                         <div class="card">
                             <div class="card-header card-no-border">

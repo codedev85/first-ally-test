@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\ExchangeRequest;
+use App\Models\TransactionHistory;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Currency as Rate;
 
@@ -35,6 +37,15 @@ class HomeController extends Controller
             $ExRequests = ExchangeRequest::where('user_id',auth()->user()->id)->where('payment_status','PENDING PAYMENT')->with('user')->orderby('created_at','desc')->limit(5)->get();
         }
 
-        return view('home' , compact('ExRequests','currencies'));
+        $clientCount = User::where('role_id',2)->count();
+        $totalExRequest = ExchangeRequest::pluck('amount_paid')->sum();
+        $payoutInpounds =  TransactionHistory::where('currency','Pounds')->pluck('credit_amount')->sum();
+        $payoutInDollars =  TransactionHistory::where('currency','Dollars')->pluck('credit_amount')->sum();
+        $payoutInEuros =  TransactionHistory::where('currency','Euros')->pluck('credit_amount')->sum();
+
+
+
+
+        return view('home' , compact('ExRequests','payoutInEuros','payoutInDollars','currencies','totalExRequest','clientCount','payoutInpounds'));
     }
 }
