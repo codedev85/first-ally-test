@@ -23,8 +23,14 @@ Route::post('/auth-login', [App\Http\Controllers\Auth\CustomLoginController::cla
 Auth::routes();
 Route::group(['middleware' => ['auth'] ], function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback']);
-    Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');
+//    Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback']);
+//    Route::post('/init/payment', [App\Http\Controllers\PaymentController::class, 'initPayment']);
+//    Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');
+    Route::post('/pay', [
+        'uses' => 'App\Http\Controllers\PaymentController@redirectToGateway',
+        'as' => 'pay'
+    ]);
+    Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class ,'handleGatewayCallback']);
     Route::get('currency/exchange', [App\Http\Controllers\Exchange::class, 'exchange'])->name('exchange');
     Route::get('currency/exchange/history', [App\Http\Controllers\Exchange::class, 'exchangeHistory'])->name('exchange.history');
     Route::post('currency/exchange', [App\Http\Controllers\Exchange::class, 'request'])->name('exchange.request');

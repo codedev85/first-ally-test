@@ -112,6 +112,7 @@
       <path value="$PROJECT_DIR$/vendor/yoeunes/toastr" />
       <path value="$PROJECT_DIR$/vendor/unicodeveloper/laravel-paystack" />
       <path value="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php" />
+      <path value="$PROJECT_DIR$/vendor/yabacon/paystack-php" />
     </include_path>
   </component>
   <component name="PhpUnit">

@@ -73,7 +73,6 @@ class PaymentController extends Controller
 
             return redirect('/home');
         }
-
-
     }
+
 }
