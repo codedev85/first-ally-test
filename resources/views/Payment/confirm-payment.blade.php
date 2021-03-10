@@ -88,7 +88,7 @@
                                                     <h4 class="f-w-500 mb-0 f-26">Confirm Payment</h4>
                                                 </div>
                                                 <div>
-                                                    <img src="{{asset('pay/credit-card.png')}}"/>
+                                                    <img src="{{asset('credit-card.png')}}" alt="credit-card"/>
                                                 </div>
                                                 <div>
                                                     <p style="font-size:20px;" class="text-success">You are about to exchange NGN  {{number_format($rate)}} for {{$currency}} @ the rate of {{$Currencyrate->rate}} </p>

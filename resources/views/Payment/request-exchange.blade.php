@@ -101,7 +101,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <button class="btn btn-success">Add Exchange Rate</button>
+                                                <button class="btn btn-success">Request Exchange</button>
                                             </form>
                                         </div>
                                     </div>
